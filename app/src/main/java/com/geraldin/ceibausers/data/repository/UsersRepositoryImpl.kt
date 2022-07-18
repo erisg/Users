@@ -33,9 +33,9 @@ class UsersRepositoryImpl @Inject constructor(
         saveInfoLocal(userApi.getAllUser())
     }
 
-    override suspend fun searchUser(value: String): Flow<List<User>>{
-      return flow {
-         emit(mapper.userEntityToUser(userDao.getFilteredUser(value)))
-      }
+    override suspend fun searchUser(value: String): Flow<List<User>> {
+        return flow {
+            emit(mapper.userEntityToUser(userDao.getFilteredUser(value)))
+        }
     }
 }

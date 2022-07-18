@@ -39,7 +39,7 @@ class PostsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        postViewModel.loadUsers(args.id)
+        postViewModel.loadUserPost(args.id)
         chargeUsers()
     }
 

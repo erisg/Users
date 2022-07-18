@@ -5,10 +5,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.geraldin.ceibausers.data.models.Post
-import com.geraldin.ceibausers.data.models.User
 import com.geraldin.ceibausers.databinding.PostItemBinding
-import com.geraldin.ceibausers.databinding.UserItemBinding
-import com.geraldin.ceibausers.util.IUserSelect
 
 class PostAdapter(
     private val posts: List<Post>

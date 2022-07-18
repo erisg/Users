@@ -43,7 +43,7 @@ class UsersFragment : Fragment(), IUserSelect {
 
         userViewModel.loadUsers()
         chargeUsers()
-        search()
+        searchUsers()
     }
 
     private fun chargeUsers() {
@@ -72,7 +72,7 @@ class UsersFragment : Fragment(), IUserSelect {
         }
     }
 
-    private fun search() {
+    private fun searchUsers() {
         binding.searchTextInputLayout.editText?.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {

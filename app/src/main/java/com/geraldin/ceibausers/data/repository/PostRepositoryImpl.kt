@@ -13,7 +13,7 @@ class PostRepositoryImpl @Inject constructor(
 
     override suspend fun getAllPost(id: Int): Flow<List<Post>> {
         return flow {
-            emit(userApi.getAllPostByUser(id))
+            emit(userApi.getAllPostByUserId(id))
         }
     }
 }

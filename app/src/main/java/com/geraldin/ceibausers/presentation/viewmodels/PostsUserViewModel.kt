@@ -19,7 +19,7 @@ class PostsUserViewModel @Inject constructor(private val postUC: PostUC) : ViewM
     )
     val postState: StateFlow<PostState> = _postState
 
-    fun loadUsers(id: Int) {
+    fun loadUserPost(id: Int) {
         viewModelScope.launch {
             postUC.getAllPost(id)
                 .catch {
