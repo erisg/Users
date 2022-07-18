@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/DESARROLLO/GERAL/Desarrollo/TEST-WORK/CEIBA/app/src/main/res/drawable-xxhdpi/image_bacground.xml" value="0.3145" />
         <entry key="..\:/DESARROLLO/GERAL/Desarrollo/TEST-WORK/CEIBA/app/src/main/res/layout/activity_main.xml" value="0.17708333333333334" />
+        <entry key="..\:/DESARROLLO/GERAL/Desarrollo/TEST-WORK/CEIBA/app/src/main/res/layout/post_fragment.xml" value="0.30344202898550726" />
+        <entry key="..\:/DESARROLLO/GERAL/Desarrollo/TEST-WORK/CEIBA/app/src/main/res/layout/post_item.xml" value="0.30344202898550726" />
         <entry key="..\:/DESARROLLO/GERAL/Desarrollo/TEST-WORK/CEIBA/app/src/main/res/layout/user_fragment.xml" value="0.17708333333333334" />
         <entry key="..\:/DESARROLLO/GERAL/Desarrollo/TEST-WORK/CEIBA/app/src/main/res/layout/user_item.xml" value="0.22" />
       </map>

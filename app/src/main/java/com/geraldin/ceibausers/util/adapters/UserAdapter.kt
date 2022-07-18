@@ -1,4 +1,4 @@
-package com.geraldin.ceibausers.util
+package com.geraldin.ceibausers.util.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.geraldin.ceibausers.data.models.User
 import com.geraldin.ceibausers.databinding.UserItemBinding
+import com.geraldin.ceibausers.util.IUserSelect
 
 class UserAdapter(
     private val services: List<User>,

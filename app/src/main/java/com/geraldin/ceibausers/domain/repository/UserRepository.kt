@@ -9,4 +9,5 @@ interface UserRepository {
     suspend fun getAllUser(): Flow<List<User>>
     suspend fun saveInfoLocal(users: List<UserResponse>)
     suspend fun getAllUserFromApi()
+    suspend fun searchUser(value: String): Flow<List<User>>
 }

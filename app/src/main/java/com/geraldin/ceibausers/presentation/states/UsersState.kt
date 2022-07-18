@@ -1,4 +1,4 @@
-package com.geraldin.ceibausers.presentation
+package com.geraldin.ceibausers.presentation.states
 
 import com.geraldin.ceibausers.data.models.User
 

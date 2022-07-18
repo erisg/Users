@@ -1,6 +1,8 @@
 package com.geraldin.ceibausers.di
 
 import com.geraldin.ceibausers.data.remote.UsersApi
+import com.geraldin.ceibausers.data.repository.PostRepositoryImpl
+import com.geraldin.ceibausers.domain.repository.PostRepository
 import com.geraldin.ceibausers.util.Constants
 import dagger.Module
 import dagger.Provides
@@ -27,5 +29,11 @@ object RemoteModule {
     @Singleton
     fun provideApiClient(retrofit: Retrofit): UsersApi {
         return retrofit.create(UsersApi::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun providePostRepository(api: UsersApi): PostRepository {
+        return PostRepositoryImpl(api)
     }
 }

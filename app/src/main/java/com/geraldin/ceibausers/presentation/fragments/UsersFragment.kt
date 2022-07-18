@@ -1,6 +1,8 @@
 package com.geraldin.ceibausers.presentation.fragments
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,11 +12,12 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import com.geraldin.ceibausers.databinding.UserFragmentBinding
-import com.geraldin.ceibausers.presentation.UsersState
+import com.geraldin.ceibausers.presentation.states.UsersState
 import com.geraldin.ceibausers.presentation.viewmodels.UserViewModel
 import com.geraldin.ceibausers.util.IUserSelect
-import com.geraldin.ceibausers.util.UserAdapter
+import com.geraldin.ceibausers.util.adapters.UserAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -40,6 +43,7 @@ class UsersFragment : Fragment(), IUserSelect {
 
         userViewModel.loadUsers()
         chargeUsers()
+        search()
     }
 
     private fun chargeUsers() {
@@ -68,8 +72,15 @@ class UsersFragment : Fragment(), IUserSelect {
         }
     }
 
-    fun filteredUser() {
-        binding.searchView
+    private fun search() {
+        binding.searchTextInputLayout.editText?.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                userViewModel.searchUsers(p0.toString())
+                chargeUsers()
+            }
+            override fun afterTextChanged(p0: Editable?) {}
+        })
     }
 
     override fun onDestroy() {
@@ -78,6 +89,7 @@ class UsersFragment : Fragment(), IUserSelect {
     }
 
     override fun selectedUser(id: Int) {
-        TODO("Not yet implemented")
+        val action = UsersFragmentDirections.actionUsersFragmentToSeePosts(id)
+        findNavController().navigate(action)
     }
 }

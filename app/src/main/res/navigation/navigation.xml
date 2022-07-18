@@ -9,5 +9,17 @@
         android:id="@+id/usersFragment"
         android:name="com.geraldin.ceibausers.presentation.fragments.UsersFragment"
         android:label="UsersFragment"
-        tools:layout="@layout/user_fragment"/>
+        tools:layout="@layout/user_fragment">
+        <action
+            android:id="@+id/action_usersFragment_to_seePosts"
+            app:destination="@id/seePosts" />
+    </fragment>
+    <fragment
+        android:id="@+id/seePosts"
+        android:name="com.geraldin.ceibausers.presentation.fragments.PostsFragment"
+        android:label="SeePosts"
+        tools:layout="@layout/post_fragment">
+        <argument android:name="id"
+            android:defaultValue="0"/>
+    </fragment>
 </navigation>

@@ -12,4 +12,8 @@ class UserUC @Inject constructor(
     suspend fun getAllUser(): Flow<List<User>> {
         return userRepository.getAllUser()
     }
+
+    suspend fun searchUsers(value: String): Flow<List<User>> {
+        return userRepository.searchUser(value)
+    }
 }

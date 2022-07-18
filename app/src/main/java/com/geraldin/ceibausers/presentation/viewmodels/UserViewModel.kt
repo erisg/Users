@@ -3,7 +3,7 @@ package com.geraldin.ceibausers.presentation.viewmodels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.geraldin.ceibausers.domain.uc.UserUC
-import com.geraldin.ceibausers.presentation.UsersState
+import com.geraldin.ceibausers.presentation.states.UsersState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -22,6 +22,18 @@ class UserViewModel @Inject constructor(private val userUC: UserUC) : ViewModel(
     fun loadUsers() {
         viewModelScope.launch {
             userUC.getAllUser()
+                .catch {
+                    _usersState.value = UsersState.Error(Throwable(this.toString()))
+                }
+                .collect { result ->
+                    _usersState.value = UsersState.Success(result)
+                }
+        }
+    }
+
+    fun searchUsers(value: String) {
+        viewModelScope.launch {
+            userUC.searchUsers(value)
                 .catch {
                     _usersState.value = UsersState.Error(Throwable(this.toString()))
                 }
